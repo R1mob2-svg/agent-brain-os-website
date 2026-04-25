@@ -35,16 +35,17 @@ http://127.0.0.1:4173/
 Update these values in [site.js](C:/Users/tauru/OneDrive/Desktop/agent%20brain%20os%20website/site.js):
 
 - `CONTACT_EMAIL`
-- `CANONICAL_URL`
 - `ANALYTICS_PROVIDER`
+
+Current live canonical URL:
+
+- `https://r1mob2-svg.github.io/agent-brain-os-website/`
 
 Default launch-safe state:
 
 - `CONTACT_EMAIL` uses a placeholder until Rob provides the final address
-- `CANONICAL_URL` stays pending until a real production URL exists
 - `ANALYTICS_PROVIDER` is `none`
 - CTA mailto links are hydrated by `site.js`, so this file must be served with the page
-- Canonical metadata should only be activated after the real production URL exists
 
 ## Deployment
 
@@ -60,7 +61,7 @@ Suitable options:
 ## Simple Static Deployment Checklist
 
 1. Replace `CONTACT_EMAIL` in `site.js`.
-2. Replace `CANONICAL_URL` in `site.js` with the real production URL.
+2. Update `CANONICAL_URL` in `site.js` only if the site moves away from the current live Pages URL.
 3. Keep `ANALYTICS_PROVIDER` as `none` unless a real provider is approved and configured.
 4. Upload the full folder contents to the chosen static host.
 5. Verify the live page, CTA mailto path, metadata, and asset URLs.
@@ -68,7 +69,6 @@ Suitable options:
 ## Launch Verification Traps
 
 - A local browser pass with JavaScript enabled can hide a broken CTA fallback, so confirm the deployed `site.js` file is serving correctly.
-- Do not treat preview, local, or temporary staging URLs as the canonical URL.
 - Do not leave `CONTACT_EMAIL` or `CANONICAL_URL` on placeholder values when claiming launch readiness.
 - Social sharing metadata should be re-checked after deployment because production share cards work best with absolute production asset URLs.
 - Mailto is a lightweight launch path, not a submission backend. It proves an enquiry route exists, not that a CRM or tracking pipeline is active.
@@ -78,7 +78,6 @@ Suitable options:
 
 - The early-access CTA is a mailto launch path, not a form backend.
 - Analytics are not active unless `ANALYTICS_PROVIDER` is changed and a real implementation is added.
-- Canonical URL is pending until a real deployment URL exists.
 - `site.js` is part of the launch-critical path because it applies the configured CTA hrefs and canonical metadata state.
 - No fake testimonials, logos, dashboards, portals, or live-product claims should be added.
 - Do not claim deployment until a real static host is live and verified.

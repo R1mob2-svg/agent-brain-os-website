@@ -1,6 +1,6 @@
 const SITE_CONFIG = Object.freeze({
   CONTACT_EMAIL: "REPLACE_WITH_ROB_EMAIL",
-  CANONICAL_URL: "REPLACE_WITH_FINAL_URL",
+  CANONICAL_URL: "https://r1mob2-svg.github.io/agent-brain-os-website/",
   ANALYTICS_PROVIDER: "none"
 });
 
@@ -73,6 +73,11 @@ function applyCanonicalMetadata() {
   }
 
   ogUrl.setAttribute("content", SITE_CONFIG.CANONICAL_URL);
+
+  const absoluteHeroAsset = new URL("assets/agent-brain-os-hero.svg", SITE_CONFIG.CANONICAL_URL).toString();
+  document.querySelectorAll("meta[property='og:image'], meta[name='twitter:image']").forEach((meta) => {
+    meta.setAttribute("content", absoluteHeroAsset);
+  });
 }
 
 function applyAnalyticsState() {
