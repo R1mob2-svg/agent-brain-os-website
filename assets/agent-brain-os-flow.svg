@@ -1,0 +1,100 @@
+<svg width="960" height="720" viewBox="0 0 960 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Agent Brain OS operating loop diagram</title>
+  <desc id="desc">A six-stage flow diagram showing boot protocol, doctrine, repo work, receipts, audits, preserved learning, and improved future runs.</desc>
+  <defs>
+    <linearGradient id="bg" x1="96" y1="72" x2="864" y2="648" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#112139"/>
+      <stop offset="0.58" stop-color="#0A1422"/>
+      <stop offset="1" stop-color="#050B13"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="110" y1="0" x2="850" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7EE5FF"/>
+      <stop offset="1" stop-color="#2291BD"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#E5CA84"/>
+      <stop offset="1" stop-color="#A27F35"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(742 182) rotate(154.275) scale(208.314 176.76)">
+      <stop stop-color="#55D9FF" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#55D9FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="960" height="720" rx="40" fill="url(#bg)"/>
+  <circle cx="748" cy="184" r="140" fill="url(#glow)"/>
+  <rect x="48" y="48" width="864" height="624" rx="32" fill="#08121E" stroke="#18304A" stroke-width="2"/>
+
+  <text x="76" y="104" fill="#E5CA84" font-family="Space Grotesk, Arial, sans-serif" font-size="16" font-weight="700">HOW AGENT BRAIN OS WORKS</text>
+  <text x="76" y="150" fill="#EEF6FF" font-family="Space Grotesk, Arial, sans-serif" font-size="34" font-weight="700">A repeatable operating loop for AI builder workflows</text>
+  <text x="76" y="182" fill="#A8BDD1" font-family="Arial, sans-serif" font-size="16">The structure is simple on purpose: load the rules, do the work, preserve the learning, improve the next run.</text>
+
+  <g>
+    <rect x="76" y="240" width="230" height="146" rx="26" fill="#102033" stroke="#1C3955" stroke-width="2"/>
+    <circle cx="112" cy="280" r="16" fill="#103047" stroke="#7EE5FF" stroke-width="2"/>
+    <text x="106" y="286" fill="#7EE5FF" font-family="Space Grotesk, Arial, sans-serif" font-size="16" font-weight="700">1</text>
+    <text x="146" y="280" fill="#E5CA84" font-family="Space Grotesk, Arial, sans-serif" font-size="14" font-weight="700">CONNECT THE BRAIN</text>
+    <text x="112" y="322" fill="#EEF6FF" font-family="Space Grotesk, Arial, sans-serif" font-size="24" font-weight="700">Clone or link the repo structure</text>
+    <text x="112" y="356" fill="#A8BDD1" font-family="Arial, sans-serif" font-size="15">Bring the portable brain, backups, and doctrine into the workflow.</text>
+  </g>
+
+  <g>
+    <rect x="364" y="240" width="230" height="146" rx="26" fill="#102033" stroke="#1C3955" stroke-width="2"/>
+    <circle cx="400" cy="280" r="16" fill="#103047" stroke="#7EE5FF" stroke-width="2"/>
+    <text x="394" y="286" fill="#7EE5FF" font-family="Space Grotesk, Arial, sans-serif" font-size="16" font-weight="700">2</text>
+    <text x="434" y="280" fill="#E5CA84" font-family="Space Grotesk, Arial, sans-serif" font-size="14" font-weight="700">LOAD THE RULES</text>
+    <text x="400" y="322" fill="#EEF6FF" font-family="Space Grotesk, Arial, sans-serif" font-size="24" font-weight="700">Boot protocol and doctrine first</text>
+    <text x="400" y="356" fill="#A8BDD1" font-family="Arial, sans-serif" font-size="15">Agents load memory pointers, laws, and proof boundaries before code work.</text>
+  </g>
+
+  <g>
+    <rect x="652" y="240" width="230" height="146" rx="26" fill="#102033" stroke="#1C3955" stroke-width="2"/>
+    <circle cx="688" cy="280" r="16" fill="#103047" stroke="#7EE5FF" stroke-width="2"/>
+    <text x="682" y="286" fill="#7EE5FF" font-family="Space Grotesk, Arial, sans-serif" font-size="16" font-weight="700">3</text>
+    <text x="722" y="280" fill="#E5CA84" font-family="Space Grotesk, Arial, sans-serif" font-size="14" font-weight="700">DO THE WORK</text>
+    <text x="688" y="322" fill="#EEF6FF" font-family="Space Grotesk, Arial, sans-serif" font-size="24" font-weight="700">Repo actions stay inside scope</text>
+    <text x="688" y="356" fill="#A8BDD1" font-family="Arial, sans-serif" font-size="15">The work happens against declared boundaries instead of vague chat memory.</text>
+  </g>
+
+  <path d="M306 313H348" stroke="url(#cyan)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M594 313H636" stroke="url(#cyan)" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="348" cy="313" r="6" fill="#7EE5FF"/>
+  <circle cx="636" cy="313" r="6" fill="#7EE5FF"/>
+
+  <g>
+    <rect x="76" y="452" width="230" height="154" rx="26" fill="#102033" stroke="#1C3955" stroke-width="2"/>
+    <circle cx="112" cy="492" r="16" fill="#2A2310" stroke="#E5CA84" stroke-width="2"/>
+    <text x="106" y="498" fill="#E5CA84" font-family="Space Grotesk, Arial, sans-serif" font-size="16" font-weight="700">4</text>
+    <text x="146" y="492" fill="#7EE5FF" font-family="Space Grotesk, Arial, sans-serif" font-size="14" font-weight="700">RECEIPTS</text>
+    <text x="112" y="534" fill="#EEF6FF" font-family="Space Grotesk, Arial, sans-serif" font-size="24" font-weight="700">Work produces proof</text>
+    <text x="112" y="568" fill="#A8BDD1" font-family="Arial, sans-serif" font-size="15">Receipts and checks make PASS or FAIL visible instead of assumed.</text>
+  </g>
+
+  <g>
+    <rect x="364" y="452" width="230" height="154" rx="26" fill="#102033" stroke="#1C3955" stroke-width="2"/>
+    <circle cx="400" cy="492" r="16" fill="#2A2310" stroke="#E5CA84" stroke-width="2"/>
+    <text x="394" y="498" fill="#E5CA84" font-family="Space Grotesk, Arial, sans-serif" font-size="16" font-weight="700">5</text>
+    <text x="434" y="492" fill="#7EE5FF" font-family="Space Grotesk, Arial, sans-serif" font-size="14" font-weight="700">PRESERVE LESSONS</text>
+    <text x="400" y="534" fill="#EEF6FF" font-family="Space Grotesk, Arial, sans-serif" font-size="24" font-weight="700">Mistakes become doctrine</text>
+    <text x="400" y="568" fill="#A8BDD1" font-family="Arial, sans-serif" font-size="15">Successful fixes and expensive failures get written back into memory.</text>
+  </g>
+
+  <g>
+    <rect x="652" y="452" width="230" height="154" rx="26" fill="#102033" stroke="#1C3955" stroke-width="2"/>
+    <circle cx="688" cy="492" r="16" fill="#2A2310" stroke="#E5CA84" stroke-width="2"/>
+    <text x="682" y="498" fill="#E5CA84" font-family="Space Grotesk, Arial, sans-serif" font-size="16" font-weight="700">6</text>
+    <text x="722" y="492" fill="#7EE5FF" font-family="Space Grotesk, Arial, sans-serif" font-size="14" font-weight="700">IMPROVE NEXT RUN</text>
+    <text x="688" y="534" fill="#EEF6FF" font-family="Space Grotesk, Arial, sans-serif" font-size="24" font-weight="700">Future agents start sharper</text>
+    <text x="688" y="568" fill="#A8BDD1" font-family="Arial, sans-serif" font-size="15">The next session inherits context, rules, and cleaner handoffs.</text>
+  </g>
+
+  <path d="M306 525H348" stroke="url(#gold)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M594 525H636" stroke="url(#gold)" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="348" cy="525" r="6" fill="#E5CA84"/>
+  <circle cx="636" cy="525" r="6" fill="#E5CA84"/>
+
+  <path d="M768 386C816 410 834 430 834 452" stroke="#1C3955" stroke-width="2.5" stroke-dasharray="8 8"/>
+  <path d="M190 452C190 420 206 404 262 386" stroke="#1C3955" stroke-width="2.5" stroke-dasharray="8 8"/>
+  <text x="737" y="410" fill="#90AFCB" font-family="monospace" font-size="12">audit loop</text>
+  <text x="160" y="420" fill="#90AFCB" font-family="monospace" font-size="12">handoff</text>
+</svg>
