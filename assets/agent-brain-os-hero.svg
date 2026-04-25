@@ -1,125 +1,202 @@
-<svg width="960" height="840" viewBox="0 0 960 840" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">Agent Brain OS technical workspace illustration</title>
-  <desc id="desc">An abstract premium technical workspace showing code panes, doctrine cards, repo links, structured receipts, and preserved learning.</desc>
+<svg width="1600" height="920" viewBox="0 0 1600 920" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Agent Brain OS command-centre hero image</title>
+  <desc id="desc">A premium technical workspace scene showing code monitors, GitHub-backed memory structure, proof receipts, doctrine files, and shared learning cards inside a serious AI builder environment.</desc>
   <defs>
-    <linearGradient id="bg" x1="96" y1="84" x2="864" y2="756" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0F1D33"/>
-      <stop offset="0.5" stop-color="#0A1424"/>
-      <stop offset="1" stop-color="#050B14"/>
+    <linearGradient id="bg" x1="180" y1="90" x2="1440" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0D1828"/>
+      <stop offset="0.5" stop-color="#08111D"/>
+      <stop offset="1" stop-color="#03070F"/>
     </linearGradient>
     <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#13243C" stop-opacity="0.96"/>
-      <stop offset="1" stop-color="#0A1422" stop-opacity="0.98"/>
+      <stop stop-color="#12243B" stop-opacity="0.96"/>
+      <stop offset="1" stop-color="#081320" stop-opacity="0.98"/>
     </linearGradient>
-    <linearGradient id="cyanStroke" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#6FE2FF"/>
-      <stop offset="1" stop-color="#2E9BC8"/>
+    <linearGradient id="panelSoft" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#0E1C30" stop-opacity="0.94"/>
+      <stop offset="1" stop-color="#07111D" stop-opacity="0.9"/>
     </linearGradient>
-    <linearGradient id="goldStroke" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#E5C982"/>
-      <stop offset="1" stop-color="#9C7A32"/>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#182C45" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#0A1523" stop-opacity="0.58"/>
     </linearGradient>
-    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(236 184) rotate(32.4712) scale(261.433 243.658)">
-      <stop stop-color="#56D9FF" stop-opacity="0.26"/>
-      <stop offset="1" stop-color="#56D9FF" stop-opacity="0"/>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#9DEFFF"/>
+      <stop offset="1" stop-color="#2A8BB5"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#F0CF80"/>
+      <stop offset="1" stop-color="#9B7730"/>
+    </linearGradient>
+    <radialGradient id="coolGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1060 300) rotate(92) scale(320 420)">
+      <stop stop-color="#56D8FF" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#56D8FF" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(744 668) rotate(147.274) scale(249.263 241.605)">
-      <stop stop-color="#D7B36B" stop-opacity="0.18"/>
-      <stop offset="1" stop-color="#D7B36B" stop-opacity="0"/>
+    <radialGradient id="warmGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1310 640) rotate(140) scale(300 260)">
+      <stop stop-color="#E2B55A" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#E2B55A" stop-opacity="0"/>
     </radialGradient>
-    <filter id="blur" x="-120" y="-120" width="1200" height="1080" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feGaussianBlur stdDeviation="48"/>
+    <filter id="blur" x="-140" y="-140" width="1880" height="1200" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="62"/>
+    </filter>
+    <filter id="shadow" x="600" y="80" width="980" height="740" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="28" stdDeviation="36" flood-color="#02060D" flood-opacity="0.58"/>
     </filter>
   </defs>
 
-  <rect width="960" height="840" rx="44" fill="url(#bg)"/>
-  <g filter="url(#blur)" opacity="0.9">
-    <circle cx="232" cy="196" r="132" fill="url(#glowA)"/>
-    <circle cx="728" cy="640" r="144" fill="url(#glowB)"/>
+  <rect width="1600" height="920" rx="40" fill="url(#bg)"/>
+  <g filter="url(#blur)">
+    <circle cx="1060" cy="300" r="230" fill="url(#coolGlow)"/>
+    <circle cx="1310" cy="640" r="210" fill="url(#warmGlow)"/>
   </g>
 
-  <rect x="48" y="48" width="864" height="744" rx="38" fill="#08121F" stroke="rgba(121,178,214,0.18)" stroke-width="2"/>
-  <path d="M48 164H912" stroke="#18314C" stroke-width="2"/>
-  <path d="M140 48V792" stroke="#152A42" stroke-width="1"/>
-  <g opacity="0.32">
-    <path d="M212 48V792" stroke="#102235" stroke-width="1"/>
-    <path d="M284 48V792" stroke="#102235" stroke-width="1"/>
-    <path d="M356 48V792" stroke="#102235" stroke-width="1"/>
-    <path d="M428 48V792" stroke="#102235" stroke-width="1"/>
-    <path d="M500 48V792" stroke="#102235" stroke-width="1"/>
-    <path d="M572 48V792" stroke="#102235" stroke-width="1"/>
-    <path d="M644 48V792" stroke="#102235" stroke-width="1"/>
-    <path d="M716 48V792" stroke="#102235" stroke-width="1"/>
-    <path d="M788 48V792" stroke="#102235" stroke-width="1"/>
-    <path d="M860 48V792" stroke="#102235" stroke-width="1"/>
-    <path d="M48 236H912" stroke="#102235" stroke-width="1"/>
-    <path d="M48 308H912" stroke="#102235" stroke-width="1"/>
-    <path d="M48 380H912" stroke="#102235" stroke-width="1"/>
-    <path d="M48 452H912" stroke="#102235" stroke-width="1"/>
-    <path d="M48 524H912" stroke="#102235" stroke-width="1"/>
-    <path d="M48 596H912" stroke="#102235" stroke-width="1"/>
-    <path d="M48 668H912" stroke="#102235" stroke-width="1"/>
-    <path d="M48 740H912" stroke="#102235" stroke-width="1"/>
+  <rect x="58" y="58" width="1484" height="804" rx="34" fill="#08111C" stroke="#16314A" stroke-width="2"/>
+  <path d="M58 150H1542" stroke="#102335" stroke-width="2"/>
+  <g opacity="0.2">
+    <path d="M152 150V862" stroke="#102335"/>
+    <path d="M246 150V862" stroke="#102335"/>
+    <path d="M340 150V862" stroke="#102335"/>
+    <path d="M434 150V862" stroke="#102335"/>
+    <path d="M528 150V862" stroke="#102335"/>
+    <path d="M622 150V862" stroke="#102335"/>
+    <path d="M716 150V862" stroke="#102335"/>
+    <path d="M810 150V862" stroke="#102335"/>
+    <path d="M904 150V862" stroke="#102335"/>
+    <path d="M998 150V862" stroke="#102335"/>
+    <path d="M1092 150V862" stroke="#102335"/>
+    <path d="M1186 150V862" stroke="#102335"/>
+    <path d="M1280 150V862" stroke="#102335"/>
+    <path d="M1374 150V862" stroke="#102335"/>
+  </g>
+  <g opacity="0.14">
+    <path d="M58 246H1542" stroke="#102335"/>
+    <path d="M58 342H1542" stroke="#102335"/>
+    <path d="M58 438H1542" stroke="#102335"/>
+    <path d="M58 534H1542" stroke="#102335"/>
+    <path d="M58 630H1542" stroke="#102335"/>
+    <path d="M58 726H1542" stroke="#102335"/>
   </g>
 
-  <circle cx="88" cy="106" r="7" fill="#FF7F7A"/>
-  <circle cx="116" cy="106" r="7" fill="#E7C873"/>
-  <circle cx="144" cy="106" r="7" fill="#4ACB94"/>
+  <circle cx="114" cy="104" r="8" fill="#FC7E7A"/>
+  <circle cx="146" cy="104" r="8" fill="#EDCB76"/>
+  <circle cx="178" cy="104" r="8" fill="#53D39A"/>
 
-  <rect x="86" y="204" width="470" height="374" rx="28" fill="url(#panel)" stroke="#1B354F" stroke-width="2"/>
-  <rect x="110" y="228" width="112" height="28" rx="14" fill="#102436"/>
-  <rect x="234" y="228" width="92" height="28" rx="14" fill="#0D2236"/>
-  <rect x="336" y="228" width="86" height="28" rx="14" fill="#0B1A29"/>
-  <text x="131" y="247" fill="#EEF6FF" font-family="monospace" font-size="12">agent-brain</text>
-  <text x="254" y="247" fill="#7D9FBB" font-family="monospace" font-size="12">receipts</text>
-  <text x="355" y="247" fill="#6E91AF" font-family="monospace" font-size="12">learning</text>
+  <g opacity="0.54">
+    <rect x="1180" y="102" width="124" height="10" rx="5" fill="#D6EDF8"/>
+    <rect x="1332" y="102" width="86" height="10" rx="5" fill="#CDE3EF"/>
+  </g>
 
-  <text x="112" y="288" fill="#7FE4FF" font-family="monospace" font-size="13">load(boot_protocol)</text>
-  <rect x="112" y="303" width="282" height="7" rx="3.5" fill="#14314A"/>
-  <rect x="112" y="303" width="186" height="7" rx="3.5" fill="url(#cyanStroke)"/>
-  <text x="112" y="336" fill="#DDEBFB" font-family="monospace" font-size="13">rules.required = true</text>
-  <text x="112" y="368" fill="#A9BCD2" font-family="monospace" font-size="13">proof.before_promotion()</text>
-  <text x="112" y="400" fill="#A9BCD2" font-family="monospace" font-size="13">handoffs.save(receipts)</text>
-  <text x="112" y="432" fill="#A9BCD2" font-family="monospace" font-size="13">lessons.append(successes)</text>
+  <g opacity="0.4">
+    <path d="M132 268H438" stroke="#2D5B7A" stroke-width="2"/>
+    <path d="M132 316H382" stroke="#244C66" stroke-width="2"/>
+    <path d="M132 364H322" stroke="#244C66" stroke-width="2"/>
+    <path d="M132 412H462" stroke="#244C66" stroke-width="2"/>
+    <path d="M132 460H352" stroke="#244C66" stroke-width="2"/>
+    <path d="M132 508H402" stroke="#244C66" stroke-width="2"/>
+    <path d="M132 556H282" stroke="#244C66" stroke-width="2"/>
+  </g>
+  <g opacity="0.26" font-family="monospace" font-size="22">
+    <text x="132" y="246" fill="#84A9C1">repo.load("brain")</text>
+    <text x="132" y="294" fill="#7C9EB8">doctrine.required = true</text>
+    <text x="132" y="342" fill="#7C9EB8">proof.before_promotion()</text>
+    <text x="132" y="390" fill="#7C9EB8">handoff.write(receipts)</text>
+    <text x="132" y="438" fill="#7C9EB8">lessons.append(success)</text>
+    <text x="132" y="486" fill="#B99749">audit.pass_only_with_receipts</text>
+  </g>
 
-  <rect x="110" y="470" width="420" height="80" rx="18" fill="#091320" stroke="#18324B" stroke-width="2"/>
-  <circle cx="144" cy="510" r="8" fill="#56D9FF"/>
-  <circle cx="252" cy="510" r="8" fill="#56D9FF"/>
-  <circle cx="360" cy="510" r="8" fill="#E5C982"/>
-  <circle cx="468" cy="510" r="8" fill="#56D9FF"/>
-  <path d="M152 510H244" stroke="url(#cyanStroke)" stroke-width="3" stroke-linecap="round"/>
-  <path d="M260 510H352" stroke="url(#cyanStroke)" stroke-width="3" stroke-linecap="round"/>
-  <path d="M368 510H460" stroke="url(#goldStroke)" stroke-width="3" stroke-linecap="round"/>
-  <text x="127" y="534" fill="#90AFCB" font-family="monospace" font-size="12">repo</text>
-  <text x="223" y="534" fill="#90AFCB" font-family="monospace" font-size="12">doctrine</text>
-  <text x="336" y="534" fill="#E5C982" font-family="monospace" font-size="12">receipts</text>
-  <text x="438" y="534" fill="#90AFCB" font-family="monospace" font-size="12">learning</text>
+  <path d="M860 690L1508 690L1446 812H780L860 690Z" fill="#0A1320" stroke="#17314A" stroke-width="2"/>
+  <path d="M900 640H1480" stroke="#132A40" stroke-width="2"/>
+  <path d="M920 662H1460" stroke="#132A40" stroke-width="2"/>
 
-  <rect x="590" y="184" width="284" height="146" rx="26" fill="url(#panel)" stroke="#244362" stroke-width="2"/>
-  <text x="624" y="226" fill="#E5C982" font-family="Space Grotesk, Arial, sans-serif" font-size="16" font-weight="700">BOOT DISCIPLINE</text>
-  <text x="624" y="256" fill="#EEF6FF" font-family="Space Grotesk, Arial, sans-serif" font-size="26" font-weight="700">Doctrine loaded</text>
-  <text x="624" y="288" fill="#9CB3C8" font-family="Arial, sans-serif" font-size="15">Repo boundaries checked.</text>
-  <text x="624" y="311" fill="#9CB3C8" font-family="Arial, sans-serif" font-size="15">No fake completion claims.</text>
+  <g filter="url(#shadow)">
+    <rect x="876" y="188" width="428" height="258" rx="26" fill="#08111C" stroke="#1E3C57" stroke-width="2"/>
+    <rect x="894" y="208" width="392" height="214" rx="18" fill="url(#panel)" stroke="#244A67" stroke-width="2"/>
+    <rect x="894" y="208" width="392" height="28" rx="14" fill="#0D1B2C"/>
+    <circle cx="918" cy="222" r="5" fill="#F27E7A"/>
+    <circle cx="938" cy="222" r="5" fill="#E5C872"/>
+    <circle cx="958" cy="222" r="5" fill="#56D798"/>
+    <rect x="924" y="262" width="102" height="24" rx="12" fill="#11273B"/>
+    <rect x="1038" y="262" width="92" height="24" rx="12" fill="#0F2235"/>
+    <rect x="1142" y="262" width="82" height="24" rx="12" fill="#0D1D2D"/>
+    <text x="946" y="278" fill="#D9EDF7" font-family="monospace" font-size="12">repo</text>
+    <text x="1060" y="278" fill="#B9D1E2" font-family="monospace" font-size="12">audit</text>
+    <text x="1162" y="278" fill="#B9D1E2" font-family="monospace" font-size="12">handoff</text>
+    <text x="924" y="322" fill="#94EAFF" font-family="monospace" font-size="16">boot_protocol.md</text>
+    <rect x="924" y="338" width="230" height="10" rx="5" fill="#163048"/>
+    <rect x="924" y="338" width="170" height="10" rx="5" fill="url(#cyan)"/>
+    <text x="924" y="382" fill="#EAF4FB" font-family="monospace" font-size="16">proof.receipts.required = true</text>
+    <text x="924" y="408" fill="#B8CDDB" font-family="monospace" font-size="16">learning.sync(shared_failures)</text>
+  </g>
 
-  <rect x="590" y="350" width="284" height="128" rx="26" fill="url(#panel)" stroke="#1B354F" stroke-width="2"/>
-  <text x="624" y="390" fill="#7FE4FF" font-family="Space Grotesk, Arial, sans-serif" font-size="16" font-weight="700">RECEIPTS</text>
-  <text x="624" y="424" fill="#EEF6FF" font-family="Space Grotesk, Arial, sans-serif" font-size="24" font-weight="700">Proof before PASS</text>
-  <rect x="624" y="444" width="208" height="8" rx="4" fill="#14314A"/>
-  <rect x="624" y="444" width="156" height="8" rx="4" fill="url(#cyanStroke)"/>
+  <g transform="translate(706 248)">
+    <rect width="170" height="212" rx="24" fill="#08111C" stroke="#1C3C57" stroke-width="2"/>
+    <rect x="14" y="16" width="142" height="180" rx="18" fill="url(#panelSoft)" stroke="#214561" stroke-width="2"/>
+    <text x="34" y="46" fill="#E3C16F" font-family="Arial, sans-serif" font-size="14" font-weight="700">GITHUB MEMORY</text>
+    <circle cx="34" cy="82" r="5" fill="#56D8FF"/>
+    <circle cx="34" cy="118" r="5" fill="#56D8FF"/>
+    <circle cx="34" cy="154" r="5" fill="#E3C16F"/>
+    <path d="M39 82H58V118H86" stroke="#56D8FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M39 118H58V154H86" stroke="#56D8FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="48" y="86" fill="#DCEBF5" font-family="monospace" font-size="13">brain/</text>
+    <text x="92" y="122" fill="#DCEBF5" font-family="monospace" font-size="13">doctrine/</text>
+    <text x="92" y="158" fill="#E9C875" font-family="monospace" font-size="13">receipts/</text>
+    <text x="48" y="188" fill="#AEC4D4" font-family="monospace" font-size="12">shared-lessons.log</text>
+  </g>
 
-  <rect x="590" y="498" width="284" height="142" rx="26" fill="url(#panel)" stroke="#1B354F" stroke-width="2"/>
-  <text x="624" y="538" fill="#E5C982" font-family="Space Grotesk, Arial, sans-serif" font-size="16" font-weight="700">PRESERVED LEARNING</text>
-  <text x="624" y="572" fill="#EEF6FF" font-family="Space Grotesk, Arial, sans-serif" font-size="24" font-weight="700">Future runs inherit context</text>
-  <text x="624" y="606" fill="#9CB3C8" font-family="Arial, sans-serif" font-size="15">Mistakes become rules.</text>
+  <g transform="translate(1308 250)">
+    <rect width="182" height="192" rx="24" fill="#08111C" stroke="#1C3C57" stroke-width="2"/>
+    <rect x="16" y="16" width="150" height="160" rx="18" fill="url(#panelSoft)" stroke="#214561" stroke-width="2"/>
+    <text x="36" y="46" fill="#93E9FF" font-family="Arial, sans-serif" font-size="14" font-weight="700">AUDIT CHECKS</text>
+    <circle cx="42" cy="86" r="7" fill="#E3C16F"/>
+    <path d="M39 86L42 89L47 81" stroke="#08111C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="42" cy="118" r="7" fill="#56D8FF"/>
+    <path d="M39 118L42 121L47 113" stroke="#08111C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="42" cy="150" r="7" fill="#56D8FF"/>
+    <path d="M39 150L42 153L47 145" stroke="#08111C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="58" y="90" fill="#DDECF6" font-family="monospace" font-size="12">scope checked</text>
+    <text x="58" y="122" fill="#DDECF6" font-family="monospace" font-size="12">proof attached</text>
+    <text x="58" y="154" fill="#DDECF6" font-family="monospace" font-size="12">handoff written</text>
+  </g>
 
-  <path d="M556 274C582 274 586 250 608 250" stroke="url(#cyanStroke)" stroke-width="3" stroke-linecap="round"/>
-  <path d="M556 426C586 426 588 414 608 414" stroke="url(#cyanStroke)" stroke-width="3" stroke-linecap="round"/>
-  <path d="M532 510C566 510 580 562 608 562" stroke="url(#goldStroke)" stroke-width="3" stroke-linecap="round"/>
+  <g transform="translate(856 486)">
+    <rect width="238" height="148" rx="26" fill="url(#glass)" stroke="#23435E" stroke-width="2"/>
+    <text x="28" y="42" fill="#93E9FF" font-family="Arial, sans-serif" font-size="14" font-weight="700">LATEST RECEIPT</text>
+    <rect x="28" y="62" width="182" height="8" rx="4" fill="#173149"/>
+    <rect x="28" y="62" width="138" height="8" rx="4" fill="url(#cyan)"/>
+    <text x="28" y="96" fill="#EAF4FB" font-family="monospace" font-size="13">build.check = PASS</text>
+    <text x="28" y="118" fill="#AEC4D4" font-family="monospace" font-size="13">diff.scope = bounded</text>
+  </g>
 
-  <rect x="86" y="610" width="470" height="118" rx="28" fill="#08121F" stroke="#17304A" stroke-width="2"/>
-  <text x="116" y="652" fill="#7FE4FF" font-family="Space Grotesk, Arial, sans-serif" font-size="16" font-weight="700">WHY THIS WORKS</text>
-  <text x="116" y="688" fill="#EEF6FF" font-family="Space Grotesk, Arial, sans-serif" font-size="30" font-weight="700">Memory + doctrine + receipts + handoffs</text>
-  <text x="116" y="716" fill="#A7BDD2" font-family="Arial, sans-serif" font-size="15">A serious builder tool, not a vague prompt folder.</text>
-  <rect x="728" y="676" width="104" height="28" rx="14" fill="#0D2236"/>
-  <text x="749" y="694" fill="#E5C982" font-family="monospace" font-size="12">github-backed</text>
+  <g transform="translate(1188 520)">
+    <rect width="244" height="166" rx="26" fill="url(#glass)" stroke="#3D4A40" stroke-width="2"/>
+    <text x="30" y="42" fill="#E7C874" font-family="Arial, sans-serif" font-size="14" font-weight="700">SHARED LEARNING</text>
+    <text x="30" y="82" fill="#EEF5FB" font-family="monospace" font-size="13">- repeated failure captured</text>
+    <text x="30" y="108" fill="#EEF5FB" font-family="monospace" font-size="13">- proof rule strengthened</text>
+    <text x="30" y="134" fill="#B9CCD9" font-family="monospace" font-size="13">next run inherits fix</text>
+  </g>
+
+  <g transform="translate(952 528)">
+    <rect x="0" y="0" width="332" height="176" rx="24" fill="#08111C" stroke="#1B3B56" stroke-width="2"/>
+    <rect x="20" y="18" width="292" height="116" rx="16" fill="url(#panelSoft)" stroke="#224660" stroke-width="2"/>
+    <path d="M20 142H312" stroke="#183149" stroke-width="2"/>
+    <path d="M28 154H304" stroke="#13283C" stroke-width="6" stroke-linecap="round"/>
+    <path d="M40 166H292" stroke="#13283C" stroke-width="6" stroke-linecap="round"/>
+    <text x="44" y="52" fill="#94EAFF" font-family="monospace" font-size="14">docs/boot protocol</text>
+    <text x="44" y="76" fill="#DDECF6" font-family="monospace" font-size="13">proof.before_promotion()</text>
+    <text x="44" y="100" fill="#DDECF6" font-family="monospace" font-size="13">receipts.write(active_tree)</text>
+    <rect x="44" y="112" width="150" height="8" rx="4" fill="url(#gold)"/>
+  </g>
+
+  <path d="M876 318C832 318 824 350 792 356" stroke="url(#cyan)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1304 334C1284 334 1272 334 1248 346" stroke="url(#cyan)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1094 558C1144 558 1162 558 1188 572" stroke="url(#gold)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1094 574C1116 574 1130 612 1188 612" stroke="url(#gold)" stroke-width="4" stroke-linecap="round"/>
+
+  <g opacity="0.28">
+    <rect x="1404" y="188" width="84" height="300" rx="18" fill="#091320" stroke="#1A334B" stroke-width="2"/>
+    <rect x="1420" y="218" width="52" height="10" rx="5" fill="#163149"/>
+    <rect x="1420" y="250" width="40" height="10" rx="5" fill="#163149"/>
+    <rect x="1420" y="282" width="58" height="10" rx="5" fill="#163149"/>
+    <rect x="1420" y="314" width="46" height="10" rx="5" fill="#163149"/>
+    <rect x="1420" y="346" width="52" height="10" rx="5" fill="#163149"/>
+  </g>
 </svg>
