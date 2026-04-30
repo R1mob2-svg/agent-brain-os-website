@@ -1,0 +1,29 @@
+{
+  "name": "agent-brain-os-website",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "proof:001": "tsx proofs/proof_001_librarian_health.ts",
+    "proof:002": "tsx proofs/proof_002_repo_map_safety.ts",
+    "proof:003": "tsx proofs/proof_003_retrieval_permission_filters.ts",
+    "proof:004": "tsx proofs/proof_004_candidate_memory_safety.ts",
+    "proof:005": "tsx proofs/proof_005_frontend_routes_render.ts",
+    "proof:006": "tsx proofs/proof_006_no_client_env_leak.ts"
+  },
+  "dependencies": {
+    "next": "^16.2.4",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.0",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3"
+  }
+}
