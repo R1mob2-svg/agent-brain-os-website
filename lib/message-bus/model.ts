@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 
-export const MVP_STORAGE_MODE = "mvp_memory_store";
+export const MVP_STORAGE_MODE = "mvp_dev_in_memory_only" as const;
 export const GITHUB_WRITE_ENABLED = false as const;
 
 export const INBOX_MESSAGE_STATUSES = ["created", "dispatched", "acknowledged", "completed", "failed"] as const;

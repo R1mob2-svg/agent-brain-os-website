@@ -12,7 +12,8 @@ assert.equal(receipt.status, MVP_RELEASE_STATUS);
 assert.equal(receipt.unproven_capabilities.includes("commercial SaaS readiness"), true);
 assert.equal(receipt.unproven_capabilities.includes("tenant provisioning"), true);
 assert.equal(receipt.unproven_capabilities.includes("Geminex API migration as customer"), true);
+assert.equal(receipt.unproven_capabilities.includes("ReleaseSeal containment-pack parity"), true);
 assert.match(receipt.branch, /\S+/);
-assert.match(receipt.final_verdict, /^(PASS|PARTIAL|BLOCKED|FAIL)$/);
+assert.equal(receipt.final_verdict, "PARTIAL");
 
 console.log("PROOF_023_MVP_RECEIPT_TRUTH PASSED");

@@ -29,6 +29,7 @@ async function main() {
 
     assert.equal(createResponse.status, 201);
     const payload = (await createResponse.json()) as {
+      storage_mode: string;
       historical: boolean;
       current_state_claim: boolean;
       receipt: {
@@ -37,6 +38,7 @@ async function main() {
       };
     };
 
+    assert.equal(payload.storage_mode, "mvp_dev_in_memory_only");
     assert.equal(payload.historical, true);
     assert.equal(payload.current_state_claim, false);
     assert.equal(payload.receipt.verdict, verdict);

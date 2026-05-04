@@ -21,6 +21,7 @@ assert.match(
   statusHtml,
   /This surface prevents fake PASS\. It reports proven and unproven capabilities separately\./
 );
+assert.match(statusHtml, /ReleaseSeal containment-pack parity/);
 
 const betaPlan = readFileSync(betaPlanPath, "utf8");
 const geminexPlan = readFileSync(geminexPlanPath, "utf8");

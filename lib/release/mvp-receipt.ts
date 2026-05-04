@@ -88,7 +88,8 @@ const UNPROVEN_CAPABILITIES = [
   "live customer billing",
   "production tenant isolation",
   "Geminex API migration as customer",
-  "public beta customer proof"
+  "public beta customer proof",
+  "ReleaseSeal containment-pack parity"
 ] as const;
 
 const SAFETY_BOUNDARIES = [

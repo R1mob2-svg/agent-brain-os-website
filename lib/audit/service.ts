@@ -1,4 +1,4 @@
-import { newMessageBusId } from "@/lib/message-bus/model";
+import { MVP_STORAGE_MODE, newMessageBusId } from "@/lib/message-bus/model";
 
 import type { AuditEvent, CreateAuditEventInput } from "@/lib/audit/model";
 
@@ -66,7 +66,7 @@ export function listAuditEvents(filters: AuditListFilters = {}) {
   });
 
   return {
-    storage_mode: "mvp_memory_store" as const,
+    storage_mode: MVP_STORAGE_MODE,
     historical: true as const,
     current_state_claim: false as const,
     events: sortNewestFirst(events)

@@ -36,7 +36,7 @@ async function main() {
     supported_statuses: string[];
   };
 
-  assert.equal(createdPayload.storage_mode, "mvp_memory_store");
+  assert.equal(createdPayload.storage_mode, "mvp_dev_in_memory_only");
   assert.equal(createdPayload.github_write, false);
   assert.equal(createdPayload.message.status, "created");
   assert.equal(createdPayload.message.nonce, "nonce-inbox-001");

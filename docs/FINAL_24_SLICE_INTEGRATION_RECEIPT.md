@@ -115,6 +115,12 @@ codex/agent-brain-os-librarian-mvp
 - public beta customers
 - Geminex consuming Agent Brain OS API in production
 - deployment/live URL proof unless actually deployed and verified
+- ReleaseSeal containment-pack parity
+
+## Historical Resolution Notes
+
+- Slice Pack 02's original `PARTIAL` verdict was branch-scoped and caused by the then-active `/app/status` build blocker.
+- That blocker is resolved on final integration HEAD `6640b36cfe0f58869dd5da2b47e5e281a3189267`, so the historical Pack 02 receipt remains accurate for its branch while the merged integration branch now builds cleanly.
 
 ## Command Receipts
 
@@ -150,6 +156,7 @@ codex/agent-brain-os-librarian-mvp
 - `git log -n 10 --oneline`:
 
 ```text
+6640b36 Finalize Agent Brain OS 24-slice integration receipt
 2384ed9 Merge slice-pack/05-geminex-integration-beta-release into Agent Brain OS 24-slice integration
 c513b65 Merge slice-pack/04-message-bus-audit-dashboard into Agent Brain OS 24-slice integration
 b2e8f6a Merge slice-pack/03-tenants-api-keys-entry-schema into Agent Brain OS 24-slice integration
@@ -164,4 +171,4 @@ dd1cdff Merge slice-pack/01-foundation-recovery-laws into Agent Brain OS 24-slic
 
 ## Final Verdict
 
-`PASS`
+`PARTIAL`
