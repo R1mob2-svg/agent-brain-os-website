@@ -28,7 +28,9 @@
     "proof:019": "tsx proofs/proof_019_inbox_message_bus.ts",
     "proof:020": "tsx proofs/proof_020_outbox_receipts.ts",
     "proof:021": "tsx proofs/proof_021_audit_historical_only.ts",
-    "proof:022": "tsx proofs/proof_022_dashboard_surfaces.ts"
+    "proof:022": "tsx proofs/proof_022_dashboard_surfaces.ts",
+    "proof:023": "tsx proofs/proof_023_mvp_receipt_truth.ts",
+    "proof:024": "tsx proofs/proof_024_status_and_beta_truth.ts"
   },
   "dependencies": {
     "next": "^16.2.4",
