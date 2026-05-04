@@ -4,7 +4,11 @@ export const dynamic = "force-dynamic";
 
 const nav = [
   { href: "/app", label: "Overview" },
+  { href: "/app/dashboard", label: "Dashboard" },
   { href: "/app/librarian", label: "Librarian" },
+  { href: "/app/inbox", label: "Inbox" },
+  { href: "/app/outbox", label: "Outbox" },
+  { href: "/app/audit", label: "Audit" },
   { href: "/app/agents", label: "Agents" },
   { href: "/app/workspaces", label: "Workspaces" },
   { href: "/app/candidates", label: "Candidates" }
@@ -16,9 +20,10 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       <aside className="app-sidebar card">
         <div>
           <p className="eyebrow">Agent Brain OS</p>
-          <h1 className="app-title">Librarian MVP</h1>
+          <h1 className="app-title">Agent Brain OS MVP</h1>
           <p className="sidebar-copy">
-            A read-only retrieval control room with staged candidate updates and explicit file selection.
+            A bounded control room for Librarian retrieval, staged candidates, and MVP message-bus plus audit
+            surfaces with explicit caveats.
           </p>
         </div>
 
