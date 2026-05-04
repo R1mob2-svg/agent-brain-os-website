@@ -66,6 +66,26 @@ function excerptFromContent(content: string): string {
   return firstLine.slice(0, 180);
 }
 
+function buildBlockedCandidateResult(
+  status: CandidateMemoryResult["status"],
+  targetPath: string | null,
+  reason: string,
+  resolutionPath: string
+): CandidateMemoryResult {
+  return {
+    status,
+    response_generation_mode: "structured",
+    candidateId: null,
+    targetPath,
+    reason,
+    resolution_path: resolutionPath,
+    recovery_path: resolutionPath,
+    rationale: reason,
+    preview: null,
+    warnings: []
+  };
+}
+
 async function fetchRepoHead(fetcher: typeof fetch = fetch): Promise<{ commit: string | null; warnings: string[] }> {
   try {
     const response = await fetchGitHubJson(
@@ -135,6 +155,7 @@ export function buildHealthPayload(): LibrarianHealthPayload {
   return {
     status: "ok",
     mode: "bounded_read_only_candidate",
+    response_generation_mode: "structured",
     repo: AGENT_BRAIN_REPO,
     branch: AGENT_BRAIN_BRANCH,
     candidateWrites: "staged_only",
@@ -185,42 +206,40 @@ export async function retrieveBundle(
 export function stageCandidateMemoryUpdate(input: CandidateMemoryInput): CandidateMemoryResult {
   const proposedPath = input.proposedPath.trim().replace(/\\/g, "/");
   if (!/^Agents\/[A-Za-z0-9._-]+\/Candidates\/[A-Za-z0-9._/-]+\.md$/i.test(proposedPath)) {
-    return {
-      status: "blocked_invalid_path",
-      candidateId: null,
-      targetPath: null,
-      rationale: "Candidate updates must stay under Agents/<agent>/Candidates/*.md",
-      preview: null,
-      warnings: []
-    };
+    return buildBlockedCandidateResult(
+      "blocked_invalid_path",
+      null,
+      "Candidate updates must stay under Agents/<agent>/Candidates/*.md.",
+      "Retry with a bounded markdown target under Agents/<agent>/Candidates/."
+    );
   }
 
   if (!isAllowedBundlePath(proposedPath) || BLOCKED_ROOTS.some((blocked) => proposedPath.startsWith(blocked))) {
-    return {
-      status: "blocked_protected_path",
-      candidateId: null,
-      targetPath: proposedPath,
-      rationale: "Candidate path falls outside the bounded Agent Brain OS write lane.",
-      preview: null,
-      warnings: []
-    };
+    return buildBlockedCandidateResult(
+      "blocked_protected_path",
+      proposedPath,
+      "Candidate path falls outside the bounded Agent Brain OS write lane.",
+      "Choose a candidate file inside the approved agent candidate lane before retrying."
+    );
   }
 
   if (/(github_pat_|gh[opusr]_|sk-|Bearer\s+[A-Za-z0-9._~+/=-]{16,}|\.env\b|token\b|secret\b)/i.test(input.content)) {
-    return {
-      status: "blocked_secret_like",
-      candidateId: null,
-      targetPath: proposedPath,
-      rationale: "Candidate content looks secret-bearing and cannot be staged.",
-      preview: null,
-      warnings: []
-    };
+    return buildBlockedCandidateResult(
+      "blocked_secret_like",
+      proposedPath,
+      "Candidate content looks secret-bearing and cannot be staged.",
+      "Remove token-like, bearer-like, or env-like material before retrying the candidate stage."
+    );
   }
 
   return {
     status: "candidate_staged",
+    response_generation_mode: "structured",
     candidateId: `candidate_${randomUUID()}`,
     targetPath: proposedPath,
+    reason: "Candidate passed bounded validation and was staged for review.",
+    resolution_path: null,
+    recovery_path: null,
     rationale: input.rationale,
     preview: [
       `# ${input.title.trim()}`,

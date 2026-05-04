@@ -46,6 +46,7 @@ export interface RetrievalBundleResult {
 export interface LibrarianHealthPayload {
   status: "ok";
   mode: "bounded_read_only_candidate";
+  response_generation_mode: "structured";
   repo: string;
   branch: string;
   candidateWrites: "staged_only";
@@ -67,8 +68,12 @@ export interface CandidateMemoryResult {
     | "blocked_secret_like"
     | "blocked_protected_path"
     | "blocked_invalid_path";
+  response_generation_mode: "structured";
   candidateId: string | null;
   targetPath: string | null;
+  reason: string | null;
+  resolution_path: string | null;
+  recovery_path: string | null;
   rationale: string;
   preview: string | null;
   warnings: string[];
