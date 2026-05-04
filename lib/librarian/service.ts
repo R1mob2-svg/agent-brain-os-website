@@ -1,5 +1,11 @@
-import { randomUUID } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 
+import {
+  buildAuthorityPack,
+  buildContextPack,
+  buildProofContract,
+  buildTaskPacks
+} from "@/lib/librarian/pack-builders";
 import {
   AGENT_BRAIN_BRANCH,
   AGENT_BRAIN_REPO,
@@ -12,6 +18,7 @@ import {
 import type {
   CandidateMemoryInput,
   CandidateMemoryResult,
+  ExcludedFile,
   LibrarianHealthPayload,
   RetrievalBundleResult,
   RetrievedFile
@@ -151,6 +158,30 @@ async function fetchBundleFile(pathname: string, fetcher: typeof fetch = fetch):
   }
 }
 
+function buildRetrievalLogId(input: {
+  repo: string;
+  branch: string;
+  agent: string;
+  workspace: string;
+  task: string;
+  sourceCommit: string | null;
+}): string {
+  const digest = createHash("sha1")
+    .update(
+      [
+        input.repo,
+        input.branch,
+        input.agent.trim().toLowerCase(),
+        input.workspace.trim().toLowerCase(),
+        input.task.trim().toLowerCase(),
+        input.sourceCommit ?? "no-commit"
+      ].join("::")
+    )
+    .digest("hex");
+
+  return `retrieval_${digest.slice(0, 16)}`;
+}
+
 export function buildHealthPayload(): LibrarianHealthPayload {
   return {
     status: "ok",
@@ -173,6 +204,14 @@ export async function retrieveBundle(
 ): Promise<RetrievalBundleResult> {
   const bundle = resolveBundle(input.agent, input.workspace, input.task);
   const head = await fetchRepoHead(fetcher);
+  const retrievalLogId = buildRetrievalLogId({
+    repo: AGENT_BRAIN_REPO,
+    branch: AGENT_BRAIN_BRANCH,
+    agent: bundle.agent,
+    workspace: bundle.workspace,
+    task: bundle.task,
+    sourceCommit: head.commit
+  });
   const selectedFiles = await Promise.all(
     bundle.selected.map(async (file) => {
       const fetched = await fetchBundleFile(file.path, fetcher);
@@ -182,24 +221,54 @@ export async function retrieveBundle(
       };
     })
   );
+  const excludedFiles: ExcludedFile[] = bundle.excluded.map((file) => ({
+    path: file.path,
+    reason: file.reason
+  }));
+  const contextPack = buildContextPack({
+    selectedFiles,
+    excludedFiles,
+    sourceCommit: head.commit,
+    retrievalLogId,
+    warnings: head.warnings
+  });
+  const authorityPack = buildAuthorityPack({
+    agent: bundle.agent,
+    workspace: bundle.workspace
+  });
+  const proofContract = buildProofContract({
+    agent: bundle.agent,
+    workspace: bundle.workspace,
+    task: bundle.task
+  });
+  const taskPacks = buildTaskPacks({
+    bundle,
+    selectedFiles,
+    excludedFiles,
+    proofContract,
+    retrievalLogId
+  });
+  const warnings = Array.from(new Set([...contextPack.stale_warnings, ...contextPack.missing_context_warnings]));
 
   return {
     repo: AGENT_BRAIN_REPO,
     branch: AGENT_BRAIN_BRANCH,
     sourceCommit: head.commit,
-    retrievalLogId: `retrieval_${randomUUID()}`,
+    retrievalLogId,
     mode: "bounded_read_only_candidate",
+    response_generation_mode: "structured",
     agent: bundle.agent,
     workspace: bundle.workspace,
     task: bundle.task,
     bundleTitle: bundle.title,
     bundleSummary: bundle.summary,
     selectedFiles,
-    excludedFiles: bundle.excluded.map((file) => ({
-      path: file.path,
-      reason: file.reason
-    })),
-    warnings: head.warnings
+    excludedFiles,
+    warnings,
+    contextPack,
+    authorityPack,
+    proofContract,
+    taskPacks
   };
 }
 
