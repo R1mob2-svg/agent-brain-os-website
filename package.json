@@ -16,7 +16,17 @@
     "proof:007": "tsx proofs/proof_007_response_laws_files_exist.ts",
     "proof:008": "tsx proofs/proof_008_no_canned_response_patterns.ts",
     "proof:009": "tsx proofs/proof_009_redaction_proximity.ts",
-    "proof:010": "tsx proofs/proof_010_blocking_resolution_paths.ts"
+    "proof:010": "tsx proofs/proof_010_blocking_resolution_paths.ts",
+    "proof:023": "tsx proofs/proof_023_mvp_receipt_truth.ts",
+    "proof:024": "tsx proofs/proof_024_status_and_beta_truth.ts",
+    "proof:011": "tsx proofs/proof_011_pack_generation.ts",
+    "proof:012": "tsx proofs/proof_012_task_pack_boundaries.ts",
+    "proof:013": "tsx proofs/proof_013_librarian_api_shape.ts",
+    "proof:014": "tsx proofs/proof_014_librarian_ui_mentions_packs.ts",
+    "proof:019": "tsx proofs/proof_019_inbox_message_bus.ts",
+    "proof:020": "tsx proofs/proof_020_outbox_receipts.ts",
+    "proof:021": "tsx proofs/proof_021_audit_historical_only.ts",
+    "proof:022": "tsx proofs/proof_022_dashboard_surfaces.ts"
   },
   "dependencies": {
     "next": "^16.2.4",

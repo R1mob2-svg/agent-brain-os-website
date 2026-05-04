@@ -27,12 +27,74 @@ export interface ExcludedFile {
   reason: string;
 }
 
+export type ContextPackSourceAvailability = "available" | "missing";
+
+export interface ContextPackSource {
+  path: string;
+  reason: string;
+  availability: ContextPackSourceAvailability;
+  excerpt: string;
+  bytes: number | null;
+}
+
+export interface ContextPack {
+  included_sources: ContextPackSource[];
+  excluded_sources: ExcludedFile[];
+  stale_warnings: string[];
+  missing_context_warnings: string[];
+  source_commit: string | null;
+  retrieval_log_id: string;
+}
+
+export interface AuthorityPack {
+  agent: string;
+  workspace: string;
+  allowed_operations: string[];
+  forbidden_operations: string[];
+  escalation_required_for: string[];
+  protected_surfaces: string[];
+}
+
+export interface ProofContract {
+  required_commands: string[];
+  required_receipts: string[];
+  pass_conditions: string[];
+  fail_conditions: string[];
+  no_fake_pass_rules: string[];
+}
+
+export interface TaskPackSource {
+  path: string;
+  reason: string;
+}
+
+export interface TaskPack {
+  agent: string;
+  objective: string;
+  context_summary: string;
+  included_sources: TaskPackSource[];
+  excluded_sources: TaskPackSource[];
+  allowed_operations: string[];
+  forbidden_operations: string[];
+  required_receipts: string[];
+  escalation_rules: string[];
+}
+
+export interface TaskPacks {
+  codex?: TaskPack;
+  ag?: TaskPack;
+  geminex?: TaskPack;
+  chantelle?: TaskPack;
+  future_agent?: TaskPack;
+}
+
 export interface RetrievalBundleResult {
   repo: string;
   branch: string;
   sourceCommit: string | null;
   retrievalLogId: string;
   mode: "bounded_read_only_candidate";
+  response_generation_mode: "structured";
   agent: string;
   workspace: string;
   task: string;
@@ -41,6 +103,10 @@ export interface RetrievalBundleResult {
   selectedFiles: RetrievedFile[];
   excludedFiles: ExcludedFile[];
   warnings: string[];
+  contextPack: ContextPack;
+  authorityPack: AuthorityPack;
+  proofContract: ProofContract;
+  taskPacks: TaskPacks;
 }
 
 export interface LibrarianHealthPayload {
