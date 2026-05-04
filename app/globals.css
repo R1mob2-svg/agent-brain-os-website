@@ -214,6 +214,15 @@ h3 {
   font-weight: 700;
 }
 
+.bundle-card {
+  display: block;
+}
+
+.empty-state {
+  color: var(--muted);
+  margin: 0;
+}
+
 .compare-grid ul,
 .detail-list {
   color: var(--muted);

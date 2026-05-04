@@ -24,7 +24,11 @@
     "proof:015": "tsx proofs/proof_015_tenant_model.ts",
     "proof:016": "tsx proofs/proof_016_api_key_safety.ts",
     "proof:017": "tsx proofs/proof_017_agent_identity_cards.ts",
-    "proof:018": "tsx proofs/proof_018_brain_entry_schema.ts"
+    "proof:018": "tsx proofs/proof_018_brain_entry_schema.ts",
+    "proof:019": "tsx proofs/proof_019_inbox_message_bus.ts",
+    "proof:020": "tsx proofs/proof_020_outbox_receipts.ts",
+    "proof:021": "tsx proofs/proof_021_audit_historical_only.ts",
+    "proof:022": "tsx proofs/proof_022_dashboard_surfaces.ts"
   },
   "dependencies": {
     "next": "^16.2.4",
