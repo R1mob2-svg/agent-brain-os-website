@@ -1,0 +1,64 @@
+name: codex-simulator-gate
+
+on:
+  pull_request:
+    branches: [ "**" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+  actions: read
+
+jobs:
+  codex-simulator-gate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+      actions: read
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          path: pr-checkout
+          fetch-depth: 0
+
+      - name: Record git state
+        run: |
+          OUTPUT_DIR="$RUNNER_TEMP/asiod-output-${{ github.run_id }}-${{ github.run_attempt }}"
+          mkdir -p "$OUTPUT_DIR"
+          echo "OUTPUT_DIR=$OUTPUT_DIR" >> "$GITHUB_ENV"
+
+          cd pr-checkout
+          git branch --show-current > "$OUTPUT_DIR/branch.txt" 2>/dev/null || echo "PR-detached" > "$OUTPUT_DIR/branch.txt"
+          git rev-parse HEAD > "$OUTPUT_DIR/head.txt"
+          git remote -v > "$OUTPUT_DIR/remote.txt"
+          git status --short > "$OUTPUT_DIR/git-status.txt"
+          git diff --name-status origin/main...HEAD > "$OUTPUT_DIR/git-diff-name-status.txt" 2>/dev/null || echo "diff-unavailable" > "$OUTPUT_DIR/git-diff-name-status.txt"
+          git diff --stat origin/main...HEAD > "$OUTPUT_DIR/git-diff-stat.txt" 2>/dev/null || echo "diff-unavailable" > "$OUTPUT_DIR/git-diff-stat.txt"
+
+      - name: Checkout ASIOD simulator (pinned SHA)
+        uses: actions/checkout@v4
+        with:
+          repository: R1mob2-svg/asiod-simulator
+          ref: 17440432d497a127a30b40e0eee3cfa34678bab7
+          token: ${{ secrets.GH_PAT }}
+          path: simulator
+
+      - name: Run ASIOD simulator
+        run: |
+          bash simulator/scripts/asiod_vault_scan.sh \
+            --target "pr-checkout" \
+            --output "$OUTPUT_DIR" \
+            --base "origin/main" \
+            --policy "simulator/policy/asiod-policy.yml" \
+            --repo-id "agent-brain-os-website"
+
+      - name: Upload gate artifacts (secure path)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: codex-simulator-gate-artifacts
+          path: ${{ env.OUTPUT_DIR }}
