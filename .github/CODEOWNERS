@@ -1,0 +1,5 @@
+﻿# Codex Simulator Gate — CODEOWNERS
+/.github/workflows/*                   @R1mob2-svg
+/.github/CODEOWNERS                    @R1mob2-svg
+/AGENTS.md                             @R1mob2-svg
+/CLAUDE.md                             @R1mob2-svg
