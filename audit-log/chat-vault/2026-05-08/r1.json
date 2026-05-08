@@ -1,0 +1,30 @@
+{
+  "audit_id": "1b5fc6d6-d15d-4379-bd84-2d8a6c00287a",
+  "raw_response_hash": "163795909df03a706e4e42fabad6aa1a1ea604844366b51701f534eecb5c9a9b",
+  "display_response_hash": "ecc6445f96e509d1d4c7c671409155a7accbc3b49a9236fe010fb923ecb4cbcd",
+  "tenant_id": "rob",
+  "agent_id": "AG",
+  "session_id": "s1",
+  "response_id": "r1",
+  "timestamp": "2026-05-08T10:15:33.112Z",
+  "parsed_vault_auth": {
+    "agent_id": "AG",
+    "session_id": "s1",
+    "response_id": "r1",
+    "timestamp": "2026-05-08T10:15:33.112Z",
+    "claims_made": [],
+    "claims_not_made": [],
+    "uncertainty_acknowledged": []
+  },
+  "claim_validation_outcomes": [],
+  "timing_breakdown": {
+    "parse_ms": 0,
+    "validation_ms": 0,
+    "decision_ms": 0,
+    "audit_write_ms": 0,
+    "total_ms": 1
+  },
+  "final_decision": "PARTIALLY_VERIFIED",
+  "blocked_reasons": [],
+  "mode": "general_chat"
+}
