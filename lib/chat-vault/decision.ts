@@ -1,6 +1,6 @@
 /**
  * Chat Vault V0.1 — Decision Engine
- * Aggregates claim validation outcomes into a final verdict and display response.
+ * Aggregates claim validation outcomes into an overall decision and display response.
  */
 
 import type { 
