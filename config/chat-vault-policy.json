@@ -1,0 +1,38 @@
+{
+  "_comment": "Chat Vault V0.1 Policy — do not store secrets, API keys, or env values here",
+  "latency_budget_ms": 500,
+  "fail_modes": {
+    "founder_command": "fail_closed",
+    "protected_action": "fail_closed",
+    "production_data_write": "fail_closed",
+    "general_chat": "fail_open_with_warning",
+    "read_only_query": "fail_open_with_warning"
+  },
+  "allowlisted_receipt_paths": [
+    "docs/**",
+    "Shared_Doctrine/**",
+    "Shared_State/**",
+    "Audit_Log/**"
+  ],
+  "forbidden_receipt_paths": [
+    ".env",
+    ".env.*",
+    "secrets/**",
+    "**/*.key",
+    "**/*.pem",
+    "**/*.token",
+    "node_modules/**",
+    ".git/**",
+    "**/.github/**",
+    "**/inbox/**",
+    "**/outbox/**",
+    "config/**",
+    "audit-log/**"
+  ],
+  "max_claims_per_response": 20,
+  "max_expected_match_length": 500,
+  "audit_logging_enabled": true,
+  "raw_response_storage_mode": "hash_only",
+  "url_validation_enabled": false,
+  "_asiod_protected_paths_note": "Future ASIOD policy should protect: api/chat-vault-interceptor/**, lib/chat-vault/**, config/chat-vault-policy.json, docs/CHAT_VAULT_SPEC.md, docs/CHAT_VAULT_HONEST_CAPABILITIES.md"
+}
