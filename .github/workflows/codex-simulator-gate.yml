@@ -1,0 +1,155 @@
+name: codex-simulator-gate
+
+on:
+  pull_request:
+    branches: [ "**" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+  actions: read
+
+jobs:
+  codex-simulator-gate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+      actions: read
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          path: pr-checkout
+          fetch-depth: 0
+
+      - name: Record git state
+        run: |
+          OUTPUT_DIR="$RUNNER_TEMP/asiod-output-${{ github.run_id }}-${{ github.run_attempt }}"
+          mkdir -p "$OUTPUT_DIR"
+          echo "OUTPUT_DIR=$OUTPUT_DIR" >> "$GITHUB_ENV"
+
+          cd pr-checkout
+          git branch --show-current > "$OUTPUT_DIR/branch.txt" 2>/dev/null || echo "PR-detached" > "$OUTPUT_DIR/branch.txt"
+          git rev-parse HEAD > "$OUTPUT_DIR/head.txt"
+          git remote -v > "$OUTPUT_DIR/remote.txt"
+          git status --short > "$OUTPUT_DIR/git-status.txt"
+          git diff --name-status origin/HEAD...HEAD > "$OUTPUT_DIR/git-diff-name-status.txt" 2>/dev/null || echo "diff-unavailable" > "$OUTPUT_DIR/git-diff-name-status.txt"
+          git diff --stat origin/HEAD...HEAD > "$OUTPUT_DIR/git-diff-stat.txt" 2>/dev/null || echo "diff-unavailable" > "$OUTPUT_DIR/git-diff-stat.txt"
+
+      - name: Detect decoy simulator-report.json in repo
+        run: |
+          if find pr-checkout -name "simulator-report.json" -not -path "*/.git/*" | grep -q .; then
+            echo "ARTIFACT_COLLISION: Codex-controlled simulator-report.json found — forgery attempt blocked." | tee -a "$OUTPUT_DIR/forbidden-patterns.txt"
+            exit 1
+          fi
+
+      - name: Detect supply chain hijack
+        run: |
+          cd pr-checkout
+          FOUND=false
+          for f in package.json package-lock.json pnpm-lock.yaml yarn.lock bun.lockb; do
+            if git diff --name-only origin/HEAD...HEAD 2>/dev/null | grep -qF "$f"; then
+              echo "SUPPLY_CHAIN_FLAG: $f modified by Codex." | tee -a "$OUTPUT_DIR/forbidden-patterns.txt"
+              FOUND=true
+            fi
+          done
+          if git diff origin/HEAD...HEAD 2>/dev/null -- package.json | grep -qE '"(preinstall|install|postinstall)"'; then
+            echo "SUPPLY_CHAIN_FLAG: lifecycle scripts changed." | tee -a "$OUTPUT_DIR/forbidden-patterns.txt"
+            FOUND=true
+          fi
+          if [ "$FOUND" = "true" ]; then exit 1; fi
+
+      - name: Detect workflow/gate tampering
+        run: |
+          cd pr-checkout
+          if git diff --name-only origin/HEAD...HEAD 2>/dev/null | grep -qE "^\.github/"; then
+            echo "GATE_TAMPER: .github/ modified by Codex — blocked." | tee -a "$OUTPUT_DIR/forbidden-patterns.txt"
+            exit 1
+          fi
+
+      - name: Scan diff for forbidden patterns
+        run: |
+          cd pr-checkout
+          DIFF=$(git diff origin/HEAD...HEAD -- ':!.github/workflows/' 2>/dev/null || git diff HEAD~1 -- ':!.github/workflows/' || echo "")
+          FOUND=false
+          while IFS= read -r pattern; do
+            if echo "$DIFF" | grep -iqE "$pattern"; then
+              echo "FORBIDDEN: $pattern" | tee -a "$OUTPUT_DIR/forbidden-patterns.txt"
+              FOUND=true
+            fi
+          done <<'PATTERNS'
+          fake PASS
+          SEALED_PASS
+          FINAL VERDICT
+          VERIFIED CLEAN
+          ag_pass_
+          formatFounderReply
+          canned founder repl
+          fallback response bank
+          new Map\(\)
+          catch \{\}
+          allowed: true
+          return true.*governance
+          NO_SERVER_START
+          require\.cache
+          mock token
+          process\.env.*=.*['"]
+          GITHUB_TOKEN
+          GH_TOKEN
+          \\u200[BCED]
+          \\uFEFF
+          PATTERNS
+          if [ "$FOUND" = "true" ]; then exit 1; fi
+          echo "No forbidden patterns found." > "$OUTPUT_DIR/forbidden-patterns-clean.txt"
+
+      - name: Checkout ASIOD simulator (pinned SHA)
+        uses: actions/checkout@v4
+        with:
+          repository: R1mob2-svg/asiod-simulator
+          ref: 08f2de295d602f133acadb51db4080c4944c17c6
+          path: simulator
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Run ASIOD simulator
+        run: |
+          bash simulator/scripts/asiod_vault_scan.sh --target pr-checkout --output "$OUTPUT_DIR" --base "origin/main" --policy "simulator/policy/asiod-policy.yml" --repo-id "agent-brain-os-website"
+
+      - name: Write gate metadata
+        run: |
+          SIMULATOR_SHA_LIVE=$(git -C simulator rev-parse HEAD)
+          cat > "$OUTPUT_DIR/gate-metadata.json" <<JSON
+          {
+            "generated_by": "ASIOD_SIMULATOR_GATE",
+            "workflow_run_id": "${{ github.run_id }}",
+            "target_repo": "${{ github.repository }}",
+            "target_sha": "${{ github.sha }}",
+            "simulator_repo": "R1mob2-svg/asiod-simulator",
+            "simulator_sha": "$SIMULATOR_SHA_LIVE",
+            "pr_title_untrusted": true,
+            "pr_body_untrusted": true,
+            "commit_messages_untrusted": true,
+            "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          }
+          JSON
+
+      - name: Write proof classification
+        run: |
+          cat > "$OUTPUT_DIR/proof-classification.json" <<JSON
+          {
+            "proof_class": "UNIT_ONLY",
+            "simulator_ran": true,
+            "codex_verdict_allowed": ["READY_FOR_SIMULATOR","PARTIAL","BLOCKED","FAIL"],
+            "codex_verdict_forbidden": ["PASS","DONE","VERIFIED","SEALED_PASS","PRODUCTION_READY"],
+            "ag_verdict_allowed": ["READY_FOR_NEWTON_ACCEPTANCE","PARTIAL","BLOCKED","FAIL"]
+          }
+          JSON
+
+      - name: Upload gate artifacts (secure path)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: codex-simulator-gate-artifacts
+          path: ${{ env.OUTPUT_DIR }}
